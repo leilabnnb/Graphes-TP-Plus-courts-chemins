@@ -7,6 +7,7 @@ import org.graphstream.graph.implementations.SingleGraph;
 
 public class  GraphGenerator{
 
+    
     /**
      * Generate a graph using the RandomGenerator with the given spécifications
      * @param order The number of nodes in the generated graph
