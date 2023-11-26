@@ -28,6 +28,7 @@ public class  GraphGenerator{
                         e.setAttribute("label", "" + (int) e.getNumber("length"));
                 }
                 );
+        graph.nodes().forEach(n-> n.setAttribute("label",""+n.getId()));
         gen.end();
         return graph;
     }
