@@ -72,7 +72,7 @@ public class MyDijkstra {
         // Create an instance of MyDijkstra
         MyDijkstra dijkstra = new MyDijkstra(graph, source);
 
-        // Calculer les chemins les plus courts depuis le nœud source
+        // Compute shortest paths from source node
         dijkstra.dijkstra();
 
         // Display  distances between source node and all other nodes
