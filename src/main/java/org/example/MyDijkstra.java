@@ -64,7 +64,7 @@ public class MyDijkstra {
 
     public static void main(String[] args) {
         // Generate  graph
-        Graph graph = generate(6, 2, 10);
+        Graph graph = generate(6, 2, 10, true);
 
         // Choose source node
         Node source = graph.getNode(0);

@@ -17,11 +17,11 @@ public class  GraphGenerator{
      * @param maxWeight The maximal weight of edges
      * @return A graph with the given characteristics
      */
-    public static Graph generate (int order, int avgDegree, int maxWeight){
+    public static Graph generate (int order, int avgDegree, int maxWeight, boolean oriented){
 
         Graph graph = new SingleGraph("Random");
         RandomGenerator gen = new RandomGenerator(avgDegree);
-        gen.setDirectedEdges(true,true);
+        gen.setDirectedEdges(oriented,true);
         gen.addSink(graph);
         gen.begin();
         while (graph.getNodeCount() < order && gen.nextEvents());

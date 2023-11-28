@@ -40,7 +40,7 @@ public class Tests {
             for(int o : order) {
 
                 // generate graph and choose source node
-                Graph g1 = generate(o, avgDegree, maxWeight);
+                Graph g1 = generate(o, avgDegree, maxWeight, false);
                 Node s = g1.getNode(0);
 
                 // Test MyDijkstra algo
