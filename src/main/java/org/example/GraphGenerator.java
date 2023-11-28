@@ -56,10 +56,10 @@ public class  GraphGenerator{
 
     public static void main(String[] args){
 
-        //Graph firstEx = generate(10, 80, 20);
-        Graph secondEx = generate(100, 9, 100);
+        //Graph firstEx = generate(10, 80, 20, false);
+        Graph secondEx = generate(100, 9, 100, true);
         System.out.println(density(secondEx));
-        //Graph thirdEx = generate(50, 10, 10000);
+        //Graph thirdEx = generate(50, 10, 10000,false);
         //styleAndDisplay(firstEx, "gray");
         styleAndDisplay(secondEx, "black");
         //styleAndDisplay(thirdEx, "cyan");
