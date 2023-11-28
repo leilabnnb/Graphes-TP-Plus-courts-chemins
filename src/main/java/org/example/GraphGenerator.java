@@ -5,6 +5,8 @@ import org.graphstream.algorithm.generator.RandomGenerator;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.SingleGraph;
 
+import static org.graphstream.algorithm.Toolkit.density;
+
 public class  GraphGenerator{
 
     
@@ -18,7 +20,8 @@ public class  GraphGenerator{
     public static Graph generate (int order, int avgDegree, int maxWeight){
 
         Graph graph = new SingleGraph("Random");
-        Generator gen = new RandomGenerator(avgDegree);
+        RandomGenerator gen = new RandomGenerator(avgDegree);
+        gen.setDirectedEdges(true,true);
         gen.addSink(graph);
         gen.begin();
         while (graph.getNodeCount() < order && gen.nextEvents());
@@ -53,11 +56,12 @@ public class  GraphGenerator{
 
     public static void main(String[] args){
 
-        Graph firstEx = generate(50, 5, 20);
-        Graph secondEx = generate(100, 2, 100);
-        Graph thirdEx = generate(50, 10, 10000);
-        styleAndDisplay(firstEx, "gray");
+        //Graph firstEx = generate(10, 80, 20);
+        Graph secondEx = generate(100, 9, 100);
+        System.out.println(density(secondEx));
+        //Graph thirdEx = generate(50, 10, 10000);
+        //styleAndDisplay(firstEx, "gray");
         styleAndDisplay(secondEx, "black");
-        styleAndDisplay(thirdEx, "cyan");
+        //styleAndDisplay(thirdEx, "cyan");
     }
 }
