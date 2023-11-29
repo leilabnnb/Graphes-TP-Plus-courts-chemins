@@ -92,15 +92,15 @@ Néanmoins, j'ai gardé la première également, car la mesure du temps d'exécu
 
 ### Graphes de petite taille
 
-![](/home/leila/GRP/tp3-plus-courts-chemins/dataFiles/petits/avg_S_density0.1.png)
-![](/home/leila/GRP/tp3-plus-courts-chemins/dataFiles/petits/avg_S_density0.5.png)
-![](/home/leila/GRP/tp3-plus-courts-chemins/dataFiles/petits/avg_S_density0.9.png)
+![](tp3-plus-courts-chemins/dataFiles/petits/avg_S_density0.1.png)
+![](tp3-plus-courts-chemins/dataFiles/petits/avg_S_density0.5.png)
+![](tp3-plus-courts-chemins/dataFiles/petits/avg_S_density0.9.png)
 
 
 ### Graphes de taille moyenne
-![](/home/leila/GRP/tp3-plus-courts-chemins/dataFiles/moyens/avg_M_density0.1.png)
-![](/home/leila/GRP/tp3-plus-courts-chemins/dataFiles/moyens/avg_M_density0.5.png)
-![](/home/leila/GRP/tp3-plus-courts-chemins/dataFiles/moyens/avg_M_density0.9.png)
+![](tp3-plus-courts-chemins/dataFiles/moyens/avg_M_density0.1.png)
+![](tp3-plus-courts-chemins/dataFiles/moyens/avg_M_density0.5.png)
+![](tp3-plus-courts-chemins/dataFiles/moyens/avg_M_density0.9.png)
 
 ### Graphes de taille relativement grande
 Je n'ai pas pû générer des données intéressantes pour des graphes de grandes tailles.
