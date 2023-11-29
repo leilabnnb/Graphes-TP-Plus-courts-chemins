@@ -71,7 +71,7 @@ On l'utilise simplement de cette manière :
 ## Tests effectués
 
 J'ai testé les deux algorithmes sur des types de graphes 
-différents en faisant varier les tailles, les degrés moyens
+différents en faisant varier les ordres, les degrés moyens
 et le fait que ce soit orienté ou non. 
 En observant les résultats obtenus (que j'exposerai plus bas dans le document) je me suis aperçue
 qu'il y avait une caractéristique sur laquelle je n'avais pas 
@@ -80,7 +80,7 @@ En effet, je pouvais à peu près contrôler la densité quand je générais les
 mais ce n'était pas possible de le faire quand je testais en série des graphes de différentes tailles.
 La valeur unique que je fixais pour le degré moyen me faisait obtenir des graphes d'ordres différents
 de faible densité et d'autres trés denses, que je testais tous ensemble, j'avais donc trop de 
-variables et je ne pouvais pas tirer de conclusions sur le lien entre la taille du graphe et le temps d'exécution.
+variables et je ne pouvais pas tirer de conclusions sur le lien entre l'ordre du graphe et le temps d'exécution.
 Pour y remédier, j'ai apporté quelques modifications à la méthode me permettant de générer les graphes
 pour choisir non pas le degré moyen, mais la densité du graphe.
 Néanmoins, j'ai gardé la première également, car la mesure du temps d'exécution en fonction des variations de densité me semble intéressant aussi.
@@ -90,20 +90,23 @@ Néanmoins, j'ai gardé la première également, car la mesure du temps d'exécu
 
 ## Résultats
 
-### Graphes de petite taille
+### Graphes d'ordres faibles
+
 
 ![](dataFiles/petits/avg_S_density0.1.png)
 ![](dataFiles/petits/avg_S_density0.5.png)
 ![](dataFiles/petits/avg_S_density0.9.png)
 
 
-### Graphes de taille moyenne
+
+### Graphes d'ordres moyens
 ![](dataFiles/moyens/avg_M_density0.1.png)
 ![](dataFiles/moyens/avg_M_density0.5.png)
 ![](dataFiles/moyens/avg_M_density0.9.png)
 
-### Graphes de taille relativement grande
-Je n'ai pas pû générer des données intéressantes pour des graphes de grandes tailles.
+
+### Graphes d'ordres relativement grands
+Je n'ai pas pû générer des données intéressantes pour des graphes de grandes tailles, l'exécution était longue, et ça se terminait par des dépassements de la pile.
 
 
 ## Observations
@@ -118,9 +121,8 @@ mais Monsieur Sanlaville avait évoqué le lien entre la densité des graphes et
   
 ## Explications
 
-- L'utilisation du tas de Fibonacci rend l'algorithme de GraphStream plus efficace sur les grands graphes, ar le tas de Fibonacci a un temps d’exécution amorti constant, c’est-à-dire O(1), pour les opérations insert, find-minimum et decrease-key.
-
-
+- L'utilisation du tas de Fibonacci rend l'algorithme de GraphStream plus efficace sur les grands graphes, or le tas de Fibonacci a un temps d’exécution amorti constant, c’est-à-dire O(1), pour les opérations insert, find-minimum et decrease-key.
+- Pour de grands graphes Dijkstra est peu affecté par les variations de densités.[(étude)](https://web.archive.org/web/20190426185220id_/http://www.numdam.org/article/RO_1996__30_4_333_0.pdf) 
 
 
 
