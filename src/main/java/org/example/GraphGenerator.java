@@ -13,15 +13,13 @@ public class  GraphGenerator{
     /**
      * Generate a graph using the RandomGenerator with the given spécifications
      * @param order The number of nodes in the generated graph
-     * @param avgDegree The average degree of the graph
      * @param maxWeight The maximal weight of edges
      * @return A graph with the given characteristics
      */
-    public static Graph generate (int order, int avgDegree, int maxWeight, boolean oriented){
+    public static Graph generate (int order, int avgDegree, int maxWeight, boolean directed){
 
         Graph graph = new SingleGraph("Random");
-        RandomGenerator gen = new RandomGenerator(avgDegree);
-        gen.setDirectedEdges(oriented,true);
+        RandomGenerator gen = new RandomGenerator(avgDegree, true, directed);
         gen.addSink(graph);
         gen.begin();
         while (graph.getNodeCount() < order && gen.nextEvents());
@@ -33,6 +31,37 @@ public class  GraphGenerator{
                 );
         graph.nodes().forEach(n-> n.setAttribute("label",""+n.getId()));
         gen.end();
+        return graph;
+    }
+
+    public static Graph generateDensity (int order, double density, int maxWeight, boolean directed){
+        Graph graph = new SingleGraph("Random");
+        int maxEdges = directed ? order*(order-1) : order*(order-1)/2;
+        System.out.println("Gm1");
+
+        int avgDegree = (int) (2.0 * density * maxEdges / order);
+        RandomGenerator gen = new RandomGenerator(avgDegree, true,directed);
+        gen.addSink(graph);
+        gen.begin();
+        System.out.println("Gm2");
+
+        while (graph.getNodeCount() < order && gen.nextEvents());
+        System.out.println("Gm0");
+
+        graph.edges().forEach(
+                e -> {  int weight = (int) (Math.random()* maxWeight);
+                    e.setAttribute("length", weight);
+                    e.setAttribute("label", "" + (int) e.getNumber("length"));
+                }
+        );
+        System.out.println("Gm3");
+
+        graph.nodes().forEach(n-> n.setAttribute("label",""+n.getId()));
+        System.out.println("Gm6");
+
+        gen.end();
+        System.out.println("Gm5");
+
         return graph;
     }
 
@@ -57,7 +86,7 @@ public class  GraphGenerator{
     public static void main(String[] args){
 
         //Graph firstEx = generate(10, 80, 20, false);
-        Graph secondEx = generate(100, 9, 100, true);
+        Graph secondEx = generateDensity(100, 1, 100, true);
         System.out.println(density(secondEx));
         //Graph thirdEx = generate(50, 10, 10000,false);
         //styleAndDisplay(firstEx, "gray");
